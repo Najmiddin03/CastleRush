@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1403394073792264756, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403394073792264756, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1559068344241052862, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
       propertyPath: m_Size.x
       value: 5.389539
@@ -16,13 +24,33 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.40253496
       objectReference: {fileID: 0}
+    - target: {fileID: 2164535208737695423, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164535208737695423, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164535208737695423, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675164531303827567, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3131789630362521527, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
       propertyPath: damage
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3131789630362521527, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
       propertyPath: faction
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131789630362521527, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: spawner
+      value: RightSpawnManager
       objectReference: {fileID: 0}
     - target: {fileID: 3131789630362521527, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
       propertyPath: collider1
@@ -34,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3131789630362521527, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
       propertyPath: attackSpeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3667557687029109392, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76,9 +104,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5026250081448075811, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552555390537821325, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859024227150837369, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7179323713890492507, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
       propertyPath: m_Name
-      value: Samurai (1) Variant
+      value: RightSamurai
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179323713890492507, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179323713890492507, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_TagString
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771592904067915923, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857231601323834432, guid: 982fb0eee3dd764488c21033c4deadae, type: 3}
+      propertyPath: m_Value
+      value: 0.459
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

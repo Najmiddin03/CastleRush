@@ -10,13 +10,17 @@ public class Samurai : MonoBehaviour
     public float attackSpeed = 1f;
     [SerializeField]
     private float moveSpeed = 5f; // Adjust the speed as needed
-    private bool canMove = true; // Flag to determine if the object can move
+    public bool canMove = true; // Flag to determine if the object can move
     private Animator animator; // Reference to the Animator component
-    private bool canAttack = true;
     private bool dead = false;
-    Lives damageReceiver;
+    public bool canAttack = true;
+    private Lives damageReceiver;
+    private Lives castle;
     [SerializeField]
     private int damage = 0;
+    private SpawnManager spawnManager;
+    private SpawnManager enemy;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,25 @@ public class Samurai : MonoBehaviour
         if (faction == 2)
         {
             RotateObjectBy180Degrees();
+            spawnManager = GameObject.Find("RightSpawnManager").GetComponent<SpawnManager>();
+            enemy = GameObject.Find("LeftSpawnManager").GetComponent<SpawnManager>();
+            castle = GameObject.Find("Castle").GetComponent<Lives>();
+            if (castle == null)
+            {
+                Debug.LogWarning("No castle");
+            }
         }
+        else
+        {
+            spawnManager = GameObject.Find("LeftSpawnManager").GetComponent<SpawnManager>();
+            enemy = GameObject.Find("RightSpawnManager").GetComponent<SpawnManager>();
+            castle = GameObject.Find("Castle2").GetComponent<Lives>();
+            if (castle == null)
+            {
+                Debug.LogWarning("No castle");
+            }
+        }
+
         // Get the Animator component attached to the GameObject
         animator = GetComponent<Animator>();
     }
@@ -49,59 +71,84 @@ public class Samurai : MonoBehaviour
         {
             Move();
         }
-        else
+        else if(canAttack)
         {
-            Attack();
+            StartCoroutine(Attack());
         }
     }
 
     IEnumerator Attack()
     {
+        canAttack = false;
         while (!canMove)
         {
-            yield return new WaitForSeconds(attackSpeed);
             animator.SetTrigger("Attack");
-            yield return new WaitForSeconds(0.8f);
-            if (damageReceiver != null)
+            yield return new WaitForSeconds(attackSpeed);
+            if (spawnManager.getCastle())
             {
-                // Call the GetDamage function on the collided object
-                damageReceiver.GetDamage(damage); // You can pass the desired damage value
+                castle.GetDamage(damage);
+            }
+            else
+            {
+                damageReceiver = enemy.GetSoldier().GetComponent<Lives>();
+                if (damageReceiver != null)
+                {
+                    // Call the GetDamage function on the collided object
+                    damageReceiver.GetDamage(damage); // You can pass the desired damage value
+                }
             }
         }
+        canAttack = true;
     }
 
     // Called when another collider enters the trigger collider
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionStay2D(Collision2D collision)
     {
-        // Set canMove to false when a collider enters the trigger
-        canMove = false;
-
-        // Set the "Enemy" parameter to true
-        animator.SetBool("Enemy", true);
-
-        Samurai samurai = other.GetComponent<Samurai>();
-        if (samurai.getFaction() == faction)
+        GameObject other = collision.gameObject;
+        if (other.tag == "Castle")
         {
-            if(samurai.getDamageReceiver() != null)
+            // Set canMove to false when a collider enters the trigger
+            canMove = false;
+            spawnManager.setCastle(true);
+            // Set the "Enemy" parameter to true
+            animator.SetBool("Enemy", true);
+        }
+        else if(other.tag == "Left" || other.tag == "Right")
+        {
+            //soldier
+
+            // Check if the colliding object is on the left side
+            bool isOnLeftSide;
+            if (faction == 1)
             {
-                damageReceiver = samurai.getDamageReceiver();
+                isOnLeftSide = other.transform.position.x < transform.position.x;
+            }
+            else
+            {
+                isOnLeftSide = other.transform.position.x > transform.position.x;
+            }
+
+            if (!isOnLeftSide)
+            {
+                // Set canMove to false when a collider enters the trigger
+                canMove = false;
+                // Set the "Enemy" parameter to true
+                animator.SetBool("Enemy", true);
             }
         }
-        else
-        {
-            damageReceiver = other.GetComponent<Lives>();
-        }
-        StartCoroutine(Attack());
-
     }
 
     // Called when another collider exits the trigger collider
-    void OnTriggerExit2D(Collider2D other)
+    void OnCollisionExit2D(Collision2D collision)
     {
-        StartCoroutine(TriggerExir(0.5f));
+        GameObject other = collision.gameObject;
+        if(other.tag != "Spear")
+        {
+            StartCoroutine(TriggerExit(0.5f));
+        }
     }
 
-    IEnumerator TriggerExir(float delay)
+    IEnumerator TriggerExit(float delay)
     {
         yield return new WaitForSeconds(delay);
         if (!dead)
@@ -114,11 +161,6 @@ public class Samurai : MonoBehaviour
         }
     }
 
-    public Lives getDamageReceiver()
-    {
-        return damageReceiver;
-    }
-
     // Function to move the game object towards the right in the X-axis
     void Move()
     {
@@ -127,14 +169,16 @@ public class Samurai : MonoBehaviour
 
     public void Death()
     {
+        spawnManager.setCastle(false);
         dead = true;
         animator.SetTrigger("Dead");
-        StartCoroutine(destroy(2f));   
+        StartCoroutine(destroy(0.5f));
     }
 
     IEnumerator destroy(float delay)
     {
         yield return new WaitForSeconds(delay);
+        spawnManager.RemoveSoldier();
         Destroy(gameObject);
     }
 

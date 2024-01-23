@@ -8,9 +8,65 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 118079683376076785, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124202576635648191, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156200823181857824, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156200823181857824, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156200823181857824, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156200823181857824, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156200823181857824, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024087281659912703, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703400383507482274, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2703400383507482274, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
       propertyPath: m_Name
       value: RightKnight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703400383507482274, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703400383507482274, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_TagString
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 3635309295507945893, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: lives
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882797116523587470, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520894054118773961, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_Value
+      value: 0.684
       objectReference: {fileID: 0}
     - target: {fileID: 4595671441768303684, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4595671441768303684, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 4595671441768303684, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52,9 +108,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5244002472995100361, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767239714099494097, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767239714099494097, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780151524363080290, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972800080038363801, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: damage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7972800080038363801, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
       propertyPath: faction
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972800080038363801, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
+      propertyPath: spawner
+      value: RightSpawnManager
       objectReference: {fileID: 0}
     - target: {fileID: 7972800080038363801, guid: 275ed345e2f49484da1d8e5540583183, type: 3}
       propertyPath: moveSpeed

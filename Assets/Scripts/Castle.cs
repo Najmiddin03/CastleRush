@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Castle : MonoBehaviour
 {
+    [SerializeField]
+    private int faction = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +17,6 @@ public class Castle : MonoBehaviour
     {
         
     }
+
+    public int getFaction() { return faction; }
 }
